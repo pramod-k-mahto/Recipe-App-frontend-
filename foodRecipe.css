@@ -1,0 +1,48 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Heading Styles */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color:green#333;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Recipe List Styles */
+#recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: auto;
+  justify-content: left;
+  padding: 15px;
+  padding-left: 90px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+  margin-right: 20px;
+  background-color: #d2cece;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* Recipe Title Styles */
+h4 {
+  color: green;
+  margin: 1px;
+  font-style:unset;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+}

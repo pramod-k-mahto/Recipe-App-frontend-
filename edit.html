@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Recipe</title>
+    <link rel="stylesheet" href="edit.css" />
+  </head>
+
+  <body>
+    <h1>Edit Recipe</h1>
+    <form id="editForm" action="#" method="POST">
+      <input type="hidden" id="recipeId" name="recipeId" value="" />
+
+      <label for="editTitle">Recipe Title:</label>
+      <input type="text" id="editTitle" name="editTitle" required /><br /><br />
+
+      <label for="editIngredients">Ingredients:</label>
+      <textarea
+        id="editIngredients"
+        name="editIngredients"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <label for="editInstructions">Instructions:</label>
+      <textarea
+        id="editInstructions"
+        name="editInstructions"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <input type="submit" value="Update Recipe" />
+    </form>
+  </body>
+  <script src="edit.js"></script>
+</html>

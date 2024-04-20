@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Form</title>
+    <link rel="stylesheet" href="newProduct.css" />
+  </head>
+  <body>
+    <form
+      id="recipeForm"
+      action="https://recipe-app-backend-25fu.onrender.com/submit-recipe"
+      method="POST"
+    >
+      <label for="recipeTitle">Recipe Title:</label>
+      <input
+        type="text"
+        id="recipeTitle"
+        name="recipeTitle"
+        required
+        placeholder="write Recipe title"
+      /><br /><br />
+
+      <label for="ingredients">Ingredients:</label>
+      <textarea
+        id="ingredients"
+        name="ingredients"
+        rows="4"
+        cols="50"
+        required
+        placeholder="write Ingredients "
+      ></textarea
+      ><br /><br />
+
+      <label for="instructions">Instructions:</label>
+      <textarea
+        id="instructions"
+        name="instructions"
+        rows="4"
+        cols="50"
+        required
+        placeholder="write Instructions"
+      ></textarea
+      ><br /><br />
+      <button type="button" onclick="AddData()">Add Recipe</button>
+    </form>
+  </body>
+  <script src="newproduct.js"></script>
+</html>

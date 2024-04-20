@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create Recipe</title>
+    <link rel="stylesheet" href="add.css" />
+</head>
+
+<body>
+    <div class="newproduct">
+        <a href="newproduct.html">Add New Product</a>
+    </div>
+
+    <h2>Recipe List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Ingredients</th>
+                <th>Instructions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="recipeList"></tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fetch recipes when the page loads
+            fetchRecipes();
+        });
+
+        async function fetchRecipes() {
+            try {
+                const response = await fetch("https://recipe-app-backend-25fu.onrender.com/getRecipes");
+                const recipes = await response.json();
+
+                // Display recipes on the UI
+                displayRecipes(recipes);
+            } catch (error) {
+                console.error("Error fetching recipes:", error);
+            }
+        }
+
+        async function deleteRecipe(recipeId) {
+            // Show a confirmation dialog
+            const confirmation = confirm(
+                "Are you sure you want to delete this recipe?"
+            );
+
+            if (confirmation) {
+                try {
+                    await fetch(`https://recipe-app-backend-25fu.onrender.com/${recipeId}`, {
+                        method: "DELETE",
+                    });
+
+                    // Refresh the recipe list after deletion
+                    fetchRecipes();
+                } catch (error) {
+                    console.error("Error deleting recipe:", error);
+                }
+            }
+        }
+
+        function displayRecipes(recipes) {
+            const recipeListElement = document.getElementById("recipeList");
+
+            recipeListElement.innerHTML = "";
+
+            recipes.forEach((recipe, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${recipe.recipe_title}</td>
+                    <td>${recipe.ingredient}</td>
+                    <td>${recipe.instructions}</td>
+                    <td>
+                        <button class="btn" ><a href="edit.html?id=${recipe.id}">Edit</a></button>
+                        <button class="btn" onclick="deleteRecipe(${recipe.id})">Delete</button>
+                    </td>
+                `;
+                recipeListElement.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
